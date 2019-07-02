@@ -24,10 +24,12 @@ void my_func(garbage_t *garbage_list, char **av)
 	garbage_add_pointer(test_5, &free_tab, garbage_list);
 }
 
-int main(__attribute__((unused))int ac, char **av)
+int main(int ac, char **av)
 {
 	garbage_t *garbage_list = init_garbage_list();
 
+	if (ac < 5)
+		return (84);
 	my_func(garbage_list, av);
 	garbage_free(garbage_list);
 	return (0);
